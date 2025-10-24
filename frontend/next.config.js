@@ -1,23 +1,20 @@
 /** @type {import('next').NextConfig} */
+
+const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://localhost:5001';
+
 const nextConfig = {
   reactStrictMode: true,
   
-  // Redireciona as chamadas de API para o seu backend Flask na porta 5001
   async rewrites() {
     return [
       {
-        // De: /api/auth/qualquercoisa
-        // Para: http://localhost:5001/api/auth/qualquercoisa
+        // Mantém apenas o rewrite da autenticação, 
+        // que é a única coisa que o backend Flask fará.
         source: '/api/auth/:path*', 
-        destination: 'http://localhost:5001/api/auth/:path*', 
-      },
-      {
-        // ESTA É A MUDANÇA IMPORTANTE
-        // De: /api/consulta-sql
-        // Para: http://localhost:5001/api/geo/consulta-sql
-        source: '/api/consulta-sql',
-        destination: 'http://localhost:5001/api/geo/consulta-sql',
+        destination: `${BACKEND_API_URL}/api/auth/:path*`, 
       }
+      // A rota '/api/consulta-sql' foi REMOVIDA daqui,
+      // pois será tratada pelo arquivo 'frontend/app/api/consulta-sql/route.ts'
     ];
   },
 };
