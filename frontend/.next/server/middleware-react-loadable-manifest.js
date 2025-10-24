@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app\\\\(main)\\\\consulta\\\\page.tsx -> ../../../components/geosampa_map\":{\"id\":\"app\\\\(main)\\\\consulta\\\\page.tsx -> ../../../components/geosampa_map\",\"files\":[\"static/chunks/_app-pages-browser_components_geosampa_map_tsx.js\"]}}"
