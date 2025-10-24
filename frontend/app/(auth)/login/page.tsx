@@ -20,8 +20,7 @@ export default function LoginPage() {
 
     try {
       // Faz a chamada de API para o backend Flask que criamos
-      const response = await fetch("http://localhost:5001/api/auth/login", {
-        method: "POST",
+        const response = await fetch("/api/auth/login", {        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
